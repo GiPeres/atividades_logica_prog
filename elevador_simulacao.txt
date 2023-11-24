@@ -1,0 +1,95 @@
+#include <iostream>
+
+using namespace std;
+
+class Elevador {
+private:
+    int andarAtual;
+    int totalAndares;
+    int capacidade;
+    int pessoasPresentes;
+
+public:
+ 
+    void inicializa(int capacidadeElevador, int totalAndaresPredio) {
+        capacidade = capacidadeElevador;
+        totalAndares = totalAndaresPredio;
+        andarAtual = 0;
+        pessoasPresentes = 0;
+    }
+
+    void entra() {
+        if (pessoasPresentes < capacidade) {
+            pessoasPresentes++;
+            cout << "Uma pessoa entrou no elevador.\n";
+        } else {
+            cout << "O elevador está cheio. Não é possível adicionar mais pessoas.\n";
+        }
+    }
+
+    void sai() {
+        if (pessoasPresentes > 0) {
+            pessoasPresentes--;
+            cout << "Uma pessoa saiu do elevador.\n";
+        } else {
+            cout << "O elevador está vazio. Não há pessoas para remover.\n";
+        }
+    }
+
+    void sobe() {
+        if (andarAtual < totalAndares - 1) {
+            andarAtual++;
+            cout << "Elevador subiu para o andar " << andarAtual << ".\n";
+        } else {
+            cout << "O elevador já está no último andar. Não é possível subir mais.\n";
+        }
+    }
+
+    void desce() {
+        if (andarAtual > 0) {
+            andarAtual--;
+            cout << "Elevador desceu para o andar " << andarAtual << ".\n";
+        } else {
+            cout << "O elevador já está no térreo. Não é possível descer mais.\n";
+        }
+    }
+
+    int getAndarAtual() const {
+        return andarAtual;
+    }
+
+    int getTotalAndares() const {
+        return totalAndares;
+    }
+
+    int getCapacidade() const {
+        return capacidade;
+    }
+
+    int getPessoasPresentes() const {
+        return pessoasPresentes;
+    }
+};
+
+int main() {
+
+    Elevador elevador;
+
+    elevador.inicializa(10, 5);
+
+    elevador.entra();
+    elevador.sobe();
+    elevador.entra();
+    elevador.sobe();
+    elevador.sobe();
+    elevador.sobe();
+    elevador.sai();
+    elevador.desce();
+
+    cout << "Andar Atual: " << elevador.getAndarAtual() << "\n";
+    cout << "Total de Andares: " << elevador.getTotalAndares() << "\n";
+    cout << "Capacidade do Elevador: " << elevador.getCapacidade() << "\n";
+    cout << "Pessoas Presentes: " << elevador.getPessoasPresentes() << "\n";
+
+    return 0;
+}
