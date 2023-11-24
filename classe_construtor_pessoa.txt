@@ -1,0 +1,32 @@
+neste código, há uma classe chamda pessoa, com um construtor contendo nome, idade, altura e um método void para mostrar esses dados.
+
+#include <iostream>
+
+using namespace std;
+
+class pessoa {
+public:
+    string nome;
+    int idade;
+    float altura;
+
+    pessoa(string n, int i, float a) {
+        this->nome = n;
+        this->idade = i;
+        this->altura = a;
+    }
+
+    void dados() {
+        cout << "Nome: " << nome << endl;
+        cout << "Idade: " << idade << endl;
+        cout << "Altura: " << altura << endl;
+    }
+};
+
+int main() {
+    pessoa primeira("Jose", 15, 1.69);
+    
+    primeira.dados();
+
+    return 0;
+}
