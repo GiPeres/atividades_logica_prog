@@ -1,0 +1,75 @@
+#include <iostream>
+
+using namespace std;
+
+
+class televisao{
+    
+    public:
+    
+    int volume, canal;
+    
+    void inicializa(int canalinicial, int volumeinicial) {
+        volume = volumeinicial;
+        canal = canalinicial;
+       
+    }
+
+
+    void aumentarVolume(){
+        
+        volume++;
+        cout<<"volume subiu para: " << volume;
+        
+    }
+    
+    void diminuirVolume(){
+        
+        volume--;
+        cout<<"volume desceu para: " <<volume;
+    }
+    
+     void subirCanal(){
+        
+        canal++;
+        cout<<"canal subiu para: " <<canal;
+    }
+    
+     void descerCanal(){
+        
+        canal--;
+        cout<<"canal desceu para: " <<canal;
+    }
+    
+    int getCanalAtual() const {
+        return canal;
+    }
+
+    int getVolumeAtual() const {
+        return volume;
+    }
+
+    
+};
+
+int main()
+{
+    televisao Televisao;
+
+    Televisao.inicializa(0, 0);
+
+    Televisao.aumentarVolume();
+    Televisao.aumentarVolume();
+    Televisao.aumentarVolume();
+    Televisao.diminuirVolume();
+    Televisao.subirCanal();
+    Televisao.subirCanal();
+    Televisao.descerCanal();
+    
+    cout << "canal Atual: " << Televisao.getCanalAtual() << "\n";
+    cout << "volume atual: " << Televisao.getVolumeAtual() << "\n";
+
+
+
+    return 0;
+}
