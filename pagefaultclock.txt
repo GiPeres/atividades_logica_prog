@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class pageFaultClock {
+public:
+    vector<int> paginas;
+
+    pageFaultClock(int numPaginas) : paginas(numPaginas, 0) {}
+
+    void referenciar() {
+        cout << "Determine a referencia das paginas (0 ou 1): ";
+        for (int i = 0; i < paginas.size(); ++i) {
+            cin >> paginas[i];
+        }
+    }
+
+    void checarReferencia() {
+        for (int i = 0; i < paginas.size(); ++i) {
+            if (paginas[i] == 1) {
+                paginas[i] = 0;
+                cout << "Ponteiro avancou para pagina " << (i + 2) << endl;
+            } else {
+                cout << "Pagina " << (i + 1) << " removida" << endl;
+            }
+        }
+    }
+};
+
+int main() {
+    int numPaginas = 6;
+    pageFaultClock obj(numPaginas);
+
+    obj.referenciar();
+    obj.checarReferencia();
+
+    return 0;
+}
